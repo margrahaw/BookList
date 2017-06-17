@@ -4,11 +4,21 @@
   <head>
     <meta charset="utf-8">
     <title>Figtree Project</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   </head>
   <body>
-    <h1>One day there will be a book list here...</h1>
-    <div id="list-container"></div>
+    <div class="container">
+      <h1>Reading List</h1>
+      <div class="row">
+        <div class="col-md-4">
+          <p>Profile information</p>
+        </div>
+        <div class="col-md-8" id="list-container">
+          <p>The booklist</p>
+        </div>
+      </div>
+    </div>
+
 
     <script id="list-template" type="text/x-handlebars-template">
       <ul class="list-group">
