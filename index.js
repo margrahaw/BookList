@@ -1,2 +1,2 @@
 //the original index.js file
-require('./src/app');
+require('./src/server');
