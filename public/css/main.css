@@ -1,0 +1,8 @@
+#jumbo {
+  background:
+        linear-gradient(rgba(7, 11, 11, 0.4), rgba(7, 11, 11, 0.4)),
+        url("../img/header.jpg") no-repeat fixed 0px / cover;
+  position: relative;
+  text-align: center;
+  color: #fff;
+}
