@@ -4,6 +4,7 @@
   <head>
     <meta charset="utf-8">
     <title>Figtree Project</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   </head>
   <body>
@@ -13,10 +14,11 @@
         <div class="col-md-4">
           <p>Profile information</p>
         </div>
-        <div class="col-md-8" id="list-container">
+        <div class="col-md-8">
           <p>The booklist</p>
+          <div id="list-container"></div>
           <button id="add-file-button" class="btn btn-primary" onclick="toggleAddFileForm()">Add File</button>
-          <div id="form-container" class="panel hidden">
+          <div id="form-container" class="invisible">
             <form id="add-file-form">
               <div class="form-group">
                 <label for="file-title">Title</label>
@@ -43,7 +45,7 @@
       <ul class="list-group">
         {{#each files}}
         <li class="list-group-item">
-          <strong>{{title}}</strong>: {{author}} - {{pages}} pages 
+          <strong>{{title}}</strong>: {{author}} - {{pages}} pages
         </li>
         {{/each}}
       </ul>

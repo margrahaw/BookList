@@ -34,7 +34,7 @@ router.post('/file', function(req, res, next) {
   const fileData = {
     title: req.body.title, //body references body in body-parser because express is handling it for you
     author: req.body.author,
-    pages: req.body.pages
+    pages: req.body.pages,
   };
 
   File.create(fileData, function(err, newFile) {

@@ -7,7 +7,7 @@ const config = {
   port: 8080,
   db: {
     host: 'localhost',
-    dbName: 'fsjs_project'
+    dbName: 'fsjs_project',
   }
 }
 

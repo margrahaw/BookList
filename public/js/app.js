@@ -30,8 +30,9 @@ function toggleAddFileForm() {
   toggleAddFileFormVisibility();
 }
 
+// Function to toggle the visibility of the form
 function toggleAddFileFormVisibility() {
-  $('#form-container').toggleClass('hidden');
+  $('#form-container').toggleClass('invisible');
 }
 
 function submitFileForm() {
@@ -42,7 +43,7 @@ function submitFileForm() {
   const fileData = {
      title: title,
      author: author,
-     pages: pages
+     pages: pages,
   };
   //POST json-formatted data - I will use this block of code again
   $.ajax({
