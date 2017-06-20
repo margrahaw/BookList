@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Figtree Project</title>
+    <title>BookList Project</title>
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/main.css">
@@ -11,18 +11,32 @@
   <body>
     <div class="jumbotron jumbotron-fluid" id="jumbo">
       <div class="container">
-        <h1 class="display-3">Reading List</h1>
-        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+        <h1 class="display-3">BookList</h1>
+        <p class="lead">A reading log for the book enthusiast</p>
       </div>
     </div>
     <div class="container">
       <div class="row">
         <div class="col-md-4">
-          <p>Profile information</p>
+          <div class="card">
+            <div class="card-block">
+              <h2 class="card-title text-center">Profile</h2>
+              <img src="img/profile.jpg" class="img-fluid" alt="Profile image of Mary">
+              <p><strong>Name:</strong> Mary</p>
+              <p><strong>Location:</strong> Louisville, KY</p>
+              <p><strong>Favorite Author:</strong> Chaim Potok</p>
+              <p><strong>Prefered Genres:</strong> Science Fiction, Fantasy, self-help, and Travelogue</p>
+            </div>
+          </div>
+
         </div>
         <div class="col-md-8">
-          <p>The booklist</p>
-          <div id="list-container"></div>
+          <div class="card">
+            <div class="card-block">
+              <h2 class="card-title text-center">The booklist</h2>
+              <div id="list-container"></div>
+            </div>
+          </div>
           <button id="add-file-button" class="btn btn-primary" onclick="toggleAddFileForm()">Add File</button>
           <div id="form-container" class="invisible">
             <form id="add-file-form">
@@ -50,8 +64,11 @@
     <script id="list-template" type="text/x-handlebars-template">
       <ul class="list-group">
         {{#each files}}
-        <li class="list-group-item">
-          <strong>{{title}}</strong>: {{author}} - {{pages}} pages
+        <li class="list-group-item flex-column align-items-start">
+          <!-- <strong>{{title}}</strong>: {{author}} - {{pages}} pages -->
+          <h5 class="mb-1">{{title}}</h5>
+          <p class="mb-1">{{author}}</p>
+          <small class="text-muted">length - {{pages}} pages</small>
         </li>
         {{/each}}
       </ul>
