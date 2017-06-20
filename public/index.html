@@ -17,27 +17,29 @@
     </div>
     <div class="container">
       <div class="row">
+        <!-- Profile Section -->
         <div class="col-md-4">
           <div class="card">
             <div class="card-block">
               <h2 class="card-title text-center">Profile</h2>
-              <img src="img/profile.jpg" class="img-fluid" alt="Profile image of Mary">
+              <img id="profile_img" src="img/profile.jpg" class="img-thumbnail mx-auto d-block" alt="Profile image of Mary">
               <p><strong>Name:</strong> Mary</p>
               <p><strong>Location:</strong> Louisville, KY</p>
               <p><strong>Favorite Author:</strong> Chaim Potok</p>
               <p><strong>Prefered Genres:</strong> Science Fiction, Fantasy, self-help, and Travelogue</p>
             </div>
           </div>
-
         </div>
+        <!-- Booklist Section -->
         <div class="col-md-8">
-          <div class="card">
+          <div id="booklist" class="card">
             <div class="card-block">
               <h2 class="card-title text-center">The booklist</h2>
               <div id="list-container"></div>
             </div>
           </div>
           <button id="add-file-button" class="btn btn-primary" onclick="toggleAddFileForm()">Add File</button>
+          <!-- Form to add a new title to the list -->
           <div id="form-container" class="invisible">
             <form id="add-file-form">
               <div class="form-group">
@@ -60,12 +62,11 @@
       </div>
     </div>
 
-
+    <!-- Template to create the list of titles -->
     <script id="list-template" type="text/x-handlebars-template">
       <ul class="list-group">
         {{#each files}}
         <li class="list-group-item flex-column align-items-start">
-          <!-- <strong>{{title}}</strong>: {{author}} - {{pages}} pages -->
           <h5 class="mb-1">{{title}}</h5>
           <p class="mb-1">{{author}}</p>
           <small class="text-muted">length - {{pages}} pages</small>
@@ -79,13 +80,6 @@
     <script src="/js/app.js"></script>
     <script>
       $(document).ready(function() {
-        // const data = { name: "Code Louisvillains" }
-        // const greetingTemplate = 'Hello {{name}}! I am a template!';
-        // const greetingCompiled = Handlebars.compile(greetingTemplate);
-        // const greetingRendered = greetingCompiled(data);
-        //
-        // $('body h1').first().after(greetingRendered);
-
         refreshFileList();
       });
     </script>
