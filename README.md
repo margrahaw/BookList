@@ -1,8 +1,14 @@
 # CL-FSJS-Project
-Code Louisville Full Stack JavaScript Project May 2017
+# Code Louisville Full Stack JavaScript Project  for the May 2017 session
 
-A application to track a user's reading list. Add books to a to-read list; once the books have been read, check them off the list and item will move to a read-list with a time stamp.
+BookList helps users keep track of their reading lists. There are two sections to this single page app: a profile section and a booklist. Users can add new titles to the list. 
 
-Uses Bootstrap 4.
+This site is a work in process. The immediate goal is to be able to list, edit, add, or delete titles in the book list. Other ideas I have for the app is to:
 
-This is a work in process. 
+  1. have separate book lists for books that have been read and those that have already been read
+  2. add a checkbox to the title information that will move the titles from one list to the other 
+
+To view this site on our local machine, the node packages will need to be installed using npm install in the terminal.
+
+
+ 
