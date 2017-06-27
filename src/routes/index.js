@@ -49,16 +49,36 @@ router.post('/file', function(req, res, next) {
 
 // Update handler - the PUT endpoint
 router.put('/file/:fileId', function(req, res, next) {
-  const {fileId} = req.params;
-  const file = FILES.find(entry => entry.id === fileId);
-  if (!file) {
-    return res.status(404).end(`Could not find file '${fileId}'`);
-  }
+  const File = mongoose.model('File');
+  const bookId = req.params.fileId;
 
-  file.title = req.body.title;
-  file.description = req.body.author;
-  file.pages = req.body.pages;
-  res.json(file);
+  File.findById(bookId, function(err, file) {
+    if (err) {
+      console.log(err);
+      return res.status(500).json(err);
+    }
+    if (!file) {
+      return res.status(404).json({message: "There is no file with that ID"});
+    }
+
+    file.title = req.body.title;
+    file.author = req.body.author;
+    file.pages = req.body.pages;
+
+    file.save(function(err, savedFile) {
+      res.json(savedFile);
+    })
+  })
+  // const {fileId} = req.params;
+  // const file = FILES.find(entry => entry.id === fileId);
+  // if (!file) {
+  //   return res.status(404).end(`Could not find file '${fileId}'`);
+  // }
+  //
+  // file.title = req.body.title;
+  // file.description = req.body.author;
+  // file.pages = req.body.pages;
+  // res.json(file);
 });
 
 // Delete handler - the DELETE endpoint

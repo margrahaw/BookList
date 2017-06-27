@@ -54,7 +54,7 @@
                 <label for="file-pages">Page Count</label>
                 <input type="text" class="form-control" id="file-pages" placeholder="Page Count">
               </div>
-              <button type="button" onclick="submitFileForm()" class="btn btn-success">Submit</button>
+              <button type="button" onclick="submitBookForm()" class="btn btn-success">Submit</button>
               <button type="button" onclick="cancelFileForm()" class="btn btn-link">cancel</button>
             </form>
           </div>
@@ -66,10 +66,15 @@
     <script id="list-template" type="text/x-handlebars-template">
       <ul class="list-group">
         {{#each files}}
-        <li class="list-group-item flex-column align-items-start">
-          <h5 class="mb-1">{{title}}</h5>
-          <p class="mb-1">{{author}}</p>
-          <small class="text-muted">length - {{pages}} pages</small>
+        <li class="list-group-item d-flex justify-content-between">
+          <div class="flex-column align-items-start">
+            <h5 class="mb-1">{{title}}</h5>
+            <p class="mb-1">{{author}}</p>
+            <small class="text-muted">length - {{pages}} pages</small>
+          </div>
+          <span class="">
+            <button type="button" class="btn btn-xs btn-default" onclick="editBookClick('{{_id}}')">Edit</button>
+          </span>
         </li>
         {{/each}}
       </ul>
@@ -80,7 +85,7 @@
     <script src="/js/app.js"></script>
     <script>
       $(document).ready(function() {
-        refreshFileList();
+        refreshBookList();
       });
     </script>
   </body>
