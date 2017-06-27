@@ -69,16 +69,6 @@ router.put('/file/:fileId', function(req, res, next) {
       res.json(savedFile);
     })
   })
-  // const {fileId} = req.params;
-  // const file = FILES.find(entry => entry.id === fileId);
-  // if (!file) {
-  //   return res.status(404).end(`Could not find file '${fileId}'`);
-  // }
-  //
-  // file.title = req.body.title;
-  // file.description = req.body.author;
-  // file.pages = req.body.pages;
-  // res.json(file);
 });
 
 // Delete handler - the DELETE endpoint

@@ -43,10 +43,13 @@ function submitBookForm() {
   const title = $('#file-title').val();
   const author = $('#file-author').val();
   const pages = $('#file-pages').val();
+  const id = $('#file-id').val();
   const fileData = {
      title: title,
      author: author,
      pages: pages,
+     _id: id,
+
   };
 
   // Determine whether the submit book form data is a PUT or POST value
@@ -110,3 +113,5 @@ function setBookFormData(data) {
 function cancelBookForm() {
   toggleAddBookFormVisibility();
 }
+
+// Create a function to delete a list item
