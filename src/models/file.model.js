@@ -7,6 +7,7 @@ const FileSchema = new mongoose.Schema({
   author: String,
   pages: String,
   created_at: { type: Date, default: Date.now },
+  deleted: {type: Boolean, default: false},
 });
 
 //Make the new mongoose schema in a mongoose model and register it

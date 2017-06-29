@@ -115,3 +115,20 @@ function cancelBookForm() {
 }
 
 // Create a function to delete a list item
+function deleteBookClick(id){
+  if (confirm("You are about to delete a record. Please confirm.")) {
+    $.ajax({
+      type: 'DELETE', // Delete method
+      url: '/api/file/' + id,
+      dataType: 'json',
+      contentType: 'application/json',
+    })
+    .done(function(res) {
+      console.log("Your book with id", id, " has been deleted.");
+      refreshBookList();
+    })
+    .fail(function(err) {
+      console.log("The book still remains. Something went wrong. Bummer.", err);
+    })
+  }
+}
