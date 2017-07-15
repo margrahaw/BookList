@@ -9,74 +9,114 @@
     <link rel="stylesheet" href="/css/main.css">
   </head>
   <body>
+    <!-- Navbar and Navigation -->
+    <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">BookList</a>
+      <div class="collapse navbar-collapse navbar-right justify-content-end" id="navbarNav">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="#jumbo">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="#about">About</a>
+          <a class="nav-item nav-link" href="#profile">Profile</a>
+          <a class="nav-item nav-link" href="#booklist">BookList</a>
+        </div>
+      </div>
+    </nav>
+    <!-- Jumbotron  -->
     <div class="jumbotron jumbotron-fluid" id="jumbo">
       <div class="container">
         <h1 class="display-3">BookList</h1>
         <p class="lead">A reading log for the book enthusiast</p>
       </div>
     </div>
-    <div class="container">
-      <div class="row">
-        <!-- Profile Section -->
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-block">
-              <h2 class="card-title text-center">Profile</h2>
-              <img id="profile_img" src="img/profile.jpg" class="img-thumbnail mx-auto d-block" alt="Profile image of Mary">
-              <p><strong>Name:</strong> Mary</p>
-              <p><strong>Location:</strong> Louisville, KY</p>
-              <p><strong>Favorite Author:</strong> Chaim Potok</p>
-              <p><strong>Prefered Genres:</strong> Science Fiction, Fantasy, self-help, and Travelogue</p>
+    <div class="container" id="contentBlock">
+      <!-- About Section -->
+      <div class="sectionBlocks card" id="about">
+        <div class="card-block">
+          <h2 class="text-center display-4">About</h2>
+            <div class="container">
+              <p>Labore dolore craft beer microdosing kickstarter poutine VHS jianbing brooklyn actually. Biodiesel chia iPhone readymade, master cleanse polaroid live-edge prism umami twee cold-pressed kale chips direct trade cillum. Kombucha venmo farm-to-table stumptown, retro shoreditch cardigan woke. Cronut VHS ad, gastropub gluten-free leggings iceland sint. Ipsum mixtape narwhal, pitchfork nisi hot chicken crucifix nulla irure coloring book hella shaman. Craft beer velit chambray pok pok. Brooklyn lumbersexual bespoke excepteur, hot chicken 3 wolf moon williamsburg letterpress sartorial narwhal post-ironic meh occaecat activated charcoal lyft. Celiac butcher normcore you probably haven't heard of them la croix venmo authentic. Flannel franzen bicycle rights, tumeric semiotics pork belly in pabst lo-fi voluptate.</p>
             </div>
-          </div>
         </div>
-        <!-- Booklist Section -->
-        <div class="col-md-8">
-          <div id="booklist" class="card">
-            <div class="card-block">
-              <h2 class="card-title text-center">The booklist</h2>
-              <div id="list-container"></div>
+      </div>
+      <!-- Profile Section -->
+      <div class="sectionBlocks">
+        <div class="card" id="profile">
+          <div class="card-block">
+            <h2 class="card-title text-center display-4">Profile</h2>
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-8">
+                  <p><strong>Name:</strong> Mary</p>
+                  <p><strong>Location:</strong> Louisville, KY</p>
+                  <p><strong>Favorite Author:</strong> Chaim Potok</p>
+                  <p><strong>Prefered Genres:</strong> Science Fiction, Fantasy, self-help, and Travelogue</p>
+                </div>
+                <div class="col-sm-4">
+                  <div id="photoBox">
+                    <img id="profileImg" src="img/profile.jpg" class="img-fluid" alt="Profile image of Mary">
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <button id="add-file-button" class="btn btn-primary" onclick="toggleAddBookForm()">Add File</button>
-          <!-- Form to add a new title to the list -->
-          <div id="form-container" class="invisible">
-            <form id="add-file-form">
-              <input type="hidden" id="file-id" value="" />
-              <div class="form-group">
-                <label for="file-title">Title</label>
-                <input type="text" class="form-control" id="file-title" placeholder="Title">
-              </div>
-              <div class="form-group">
-                <label for="file-author">Author</label>
-                <input type="text" class="form-control" id="file-author" placeholder="Author">
-              </div>
-              <div class="form-group">
-                <label for="file-pages">Page Count</label>
-                <input type="text" class="form-control" id="file-pages" placeholder="Page Count">
-              </div>
-              <button type="button" onclick="submitBookForm()" class="btn btn-success">Submit</button>
-              <button type="button" onclick="cancelFileForm()" class="btn btn-link">cancel</button>
-            </form>
           </div>
         </div>
       </div>
+      <!-- Booklist Section -->
+      <div class="sectionBlocks">
+        <div id="booklist" class="card">
+          <div class="card-block">
+            <h2 class="card-title text-center display-4">The Booklist</h2>
+            <div id="list-container"></div>
+          </div>
+        </div>
+        <button id="addBookButton" class="btn btn-default btn-lg" onclick="toggleAddBookForm()">Add File</button>
+        <!-- Form to add a new title to the list -->
+        <div id="form-container" class="invisible">
+          <form id="add-file-form">
+            <input type="hidden" id="file-id" value="" />
+            <div class="form-group">
+              <label for="file-title"><strong>Title</strong></label>
+              <input type="text" class="form-control" id="file-title" placeholder="The Goblet of Fire">
+            </div>
+            <div class="form-group">
+              <label for="file-author"><strong>Author</strong></label>
+              <input type="text" class="form-control" id="file-author" placeholder="J. K. Rowling">
+            </div>
+            <div class="form-group">
+              <label for="file-pages"><strong>Page Count</strong></label>
+              <input type="text" class="form-control" id="file-pages" placeholder="636">
+            </div>
+            <button type="button" onclick="submitBookForm()" class="btn btn-default btn-lg">Submit</button>
+            <button type="button" onclick="cancelBookForm()" class="btn btn-secondary btn-lg">cancel</button>
+          </form>
+        </div>
+      </div>
     </div>
+    <!-- Footer Section -->
+    <footer>
+      <div id="footer-info" class="text-center">
+        <small>&copy; Copyright 2017, Mary Hawley</small>
+      </div>
+    </footer>
+
 
     <!-- Template to create the list of titles -->
     <script id="list-template" type="text/x-handlebars-template">
       <ul class="list-group">
         {{#each files}}
         <li class="list-group-item d-flex justify-content-between">
-          <div class="flex-column align-items-start">
-            <h5 class="mb-1">{{title}}</h5>
-            <p class="mb-1">{{author}}</p>
+          <div class="flex-column align-items-start" id="bookTitle">
+            <h6 class="mb-1">{{title}}</h5>
+            <p class="mb-1"><em>{{author}}</em></p>
             <small class="text-muted">length - {{pages}} pages</small>
           </div>
-          <span class="">
-            <button type="button" class="btn btn-xs btn-default" onclick="editBookClick('{{_id}}')">Edit</button>
-            <button type="button" class="btn btn-xs btn-default" onclick="deleteBookClick('{{_id}}')">Delete</button>
-          </span>
+          <div class="">
+            <button type="button" class="btn btn-sm btn-default" onclick="editBookClick('{{_id}}')">Edit</button>
+            <button type="button" class="btn btn-sm btn-default" onclick="deleteBookClick('{{_id}}')">Delete</button>
+          </div>
         </li>
         {{/each}}
       </ul>
