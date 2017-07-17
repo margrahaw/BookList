@@ -20,13 +20,11 @@
 }
 .sectionBlocks,
 #booklist,
-#addBookButton {
+#addBookButton,
+footer,
+#footer-credit {
   margin-bottom: 2em;
 }
-footer {
-  margin-bottom: 1em;
-}
-
 
 /*Style the profile image*/
 #photoBox {
