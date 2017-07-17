@@ -36,3 +36,8 @@ footer,
   height: auto;
   border-radius: 50%;
 }
+
+/*Create a hidden div */
+.show-content {
+  display: none;
+}

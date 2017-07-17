@@ -38,6 +38,7 @@ function toggleAddBookForm() {
 // Function to toggle the visibility of the form
 function toggleAddBookFormVisibility() {
   $('#form-container').toggleClass('invisible');
+  $('#form-container').toggleClass('show-content');
 }
 
 // Function that will run when the submit button is clicked
