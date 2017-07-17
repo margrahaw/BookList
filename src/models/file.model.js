@@ -1,3 +1,5 @@
+//src/models/file.model.js
+
 // Load the mongoose package
 const mongoose = require('mongoose');
 

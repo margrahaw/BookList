@@ -1,5 +1,6 @@
 //public/js/app.js
 
+// Function to get books
 function getBooks() {
   return $.ajax('/api/file')
     .then(res => {
@@ -12,6 +13,7 @@ function getBooks() {
     });
 }
 
+// Function to Refresh the booklist
 function refreshBookList() {
   const template = $('#list-template').html();
   const compiledTemplate = Handlebars.compile(template);
@@ -38,13 +40,13 @@ function toggleAddBookFormVisibility() {
   $('#form-container').toggleClass('invisible');
 }
 
+// Function that will run when the submit button is clicked
 function submitBookForm() {
-  console.log("You clicked 'submit'. This is really great news. You are basically my hero.");
   const title = $('#file-title').val();
   const author = $('#file-author').val();
   const pages = $('#file-pages').val();
   const id = $('#file-id').val();
-  const fileData = {
+  const fileData = { // create the data types for schema
      title: title,
      author: author,
      pages: pages,
@@ -53,7 +55,6 @@ function submitBookForm() {
   };
 
   // Determine whether the submit book form data is a PUT or POST value
-
   let method, url;
   if (fileData._id) { // if there is a file id, the method is PUT and the url is the id
     method = 'PUT';
@@ -65,8 +66,8 @@ function submitBookForm() {
 
   //POST json-formatted data - This is a very important block of code and will be used in future projects
   $.ajax({
-    type: method,
-    url: url,
+    type: method, // references code above where method is defined
+    url: url, // references code above where url is defined
     data: JSON.stringify(fileData),
     dataType: 'json',
     contentType : 'application/json',
@@ -86,13 +87,12 @@ function submitBookForm() {
 function editBookClick(id) {
   const book = window.fileList.find(book => book._id === id);
   if (book) {
-    console.log("the edit button is clicked")
     setBookFormData(book);
     toggleAddBookFormVisibility();
   }
 }
 
-// Fill up form
+// Function to add the form data to set the data and add to the DB
 function setBookFormData(data) {
   data = data || {};
 

@@ -1,3 +1,6 @@
+/*Additional Styling that is not included in Bootstrap*/
+
+/* Add a background image to the jumbotron */
 #jumbo {
   margin-top: 54px;
   background:
@@ -8,36 +11,29 @@
   color: #fff;
 }
 
+/* Add content styling */
 #contentBlock {
   max-width: 700px;
 }
+#bookTitle {
+  max-width: 60%;
+}
+.sectionBlocks,
+#booklist,
+#addBookButton {
+  margin-bottom: 2em;
+}
+footer {
+  margin-bottom: 1em;
+}
 
+
+/*Style the profile image*/
 #photoBox {
   max-width: 200px;
   margin: auto;
 }
-
 #profileImg {
   width: 100%;
   height: auto;
-}
-
-.sectionBlocks {
-  margin-bottom: 2em;
-}
-
-#booklist {
-  margin-bottom: 2em;
-}
-
-#bookTitle {
-  max-width: 60%;
-}
-
-#addBookButton {
-  margin-bottom: 2em;
-}
-
-footer {
-  margin-bottom: 1em;
 }
