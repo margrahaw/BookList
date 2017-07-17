@@ -4,14 +4,6 @@
 const router = require('express').Router(); //pulls in express
 const mongoose = require('mongoose'); //pulls in mongoose
 
-const FILES = [
-  {id: 'a', title: 'The Eye of the World', author: 'Robert Jordan', pages: '782'},
-  {id: 'b', title: 'The Great Hunt', author: 'Robert Jordan', pages: '681'},
-  {id: 'c', title: 'The Dragon Reborn', author: 'Robert Jordan', pages: '675'},
-  {id: 'd', title: 'The Shados Rising', author: 'Robert Jordan', pages: '981'},
-  {id: 'e', title: 'The Fires of Heaven', author: 'Robert Jordan', pages: '963'},
-];
-
 router.use('/doc', function(req, res, next) {
   res.end('Documentation http://expressjs.com/');
 });
@@ -91,17 +83,6 @@ router.delete('/file/:fileId', function(req, res, next) {
       res.json(deletedBook);
     })
   })
-});
-
-// Read handler - the second GET endpoint
-router.get('/file/:fileId', function(req, res, next) {
-  const {fileId} = req.params;
-  const file = FILES.find(entry => entry.id === fileId);
-  if (!file) {
-    return res.status(404).end(`Could not find file '${fileId}'`);
-  }
-
-  res.json(file);
 });
 
 //export the Router so that it can be used in other files
