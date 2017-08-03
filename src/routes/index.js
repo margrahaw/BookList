@@ -4,6 +4,45 @@
 const router = require('express').Router(); //pulls in express
 const mongoose = require('mongoose'); //pulls in mongoose
 
+// Passport code ********************
+var passport = require('passport')
+  , LocalStrategy = require('passport-local').Strategy;
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    User.findOne({ username: username }, function(err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      if (!user.validPassword(password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, user);
+    });
+  }
+));
+
+passport.use(new LocalStrategy({
+  usernameField: 'email',
+  passwordField: 'password'
+},
+  function(username, password, done) {
+    // ... somethine will go here
+  }
+));
+
+router.post('/login',
+  passport.authenticate('local',
+  {
+    successRedirect: '/',
+    failureRedirect: '/login',
+    failureFlash: true
+  })
+);
+
+// End Passport Code ***************
+
 router.use('/doc', function(req, res, next) {
   res.end('Documentation http://expressjs.com/');
 });

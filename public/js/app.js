@@ -1,5 +1,10 @@
 //public/js/app.js
 
+// Function to submit the LogIn form
+function submitLogInForm() {
+  console.log("Oh, look! You clicked the submit form.");
+}
+
 // Function to get books
 function getBooks() {
   return $.ajax('/api/file')
