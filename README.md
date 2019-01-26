@@ -1,5 +1,5 @@
 # CL-FSJS-Project
-# Code Louisville Full Stack JavaScript Project  for the May 2017 session
+# BookList app for tracking a reading list
 
 BookList helps users keep track of their reading lists. There are three sections to this single page app: an about section with a brief description, a profile section for user's information, and a booklist. Users can add new titles to the list via a collapsable form and edit or delete each title. 
 
